@@ -1,0 +1,13 @@
+## set http port number
+port: 9994
+
+## set true if use https connection
+https: false
+  ## https certification files
+  #crt-path: './ssl/server.crt'
+  #key-path: './ssl/server.key'
+
+## set mongodb
+dbUrl: localhost
+dbName: hicontest 
+

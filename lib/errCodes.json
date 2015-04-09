@@ -1,0 +1,40 @@
+{
+  "S" : "Silly level",
+
+  "D" : "Debug level",
+
+  "V" : "Verbose level",
+  "V0" : "Initialization",
+    "V00" : "configuration check...  [OK]",
+    "V01" : "initialization check... [OK]",
+
+  "I" : "Info level",
+
+  "W" : "Warn level",
+  "W0" : "Initialization",
+    "W00" : "recommened Node.js version",
+      "W000" : "v0.12.2",
+
+  "E" : "Error level",
+
+  "F" : "Fatal level",
+  "F0" : "Initialization ERROR",
+    "F00" : "at '/config/hiconcpt.yml'",
+      "F000" : "cannot load file",
+      "F001" : "false configuration",
+        "F0010" : "invalid port number",
+        "F0011" : "invalid https setting",
+        "F0012" : "invalid database url",
+        "F0013" : "invalid database name",
+    "F01" : "at '/config/initial.yml'",
+      "F010" : "cannot load file",
+      "F011" : "false configuration",
+        "F0110" : "invalid adminUser",
+        "F0111" : "invalid adminPass",
+        "F0112" : "invalid mongoUser",
+        "F0113" : "invalid mongoPass",
+    "F02" : "Mongo DB",
+      "F020" : "cannot connect to db url",
+      "F021" : "cannot access to database",
+  "0" : "Undefined ERROR CODE : "
+}

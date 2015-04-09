@@ -1,0 +1,11 @@
+## initial.yml File Example
+## create 'initial.yml' file using this file.
+## for secury, initial.yml file will be deleted automatically after initialization.
+
+## Setting HiConcept system administrator ID
+adminUser: username
+adminPass: password
+
+## setting MongoDB user ID (if not, set it as 'null')
+mongoUser: null
+mongoPass: null
