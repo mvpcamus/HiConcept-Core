@@ -1,13 +1,11 @@
-// winston logger levels: [silly, debug, verbose, info, warn, error]
-//global.logger = require(__dirname+'/lib/logger.js').Logger;
-
+global.__homePath = __dirname;
 // modules
-var server = require(__dirname+'/lib/server.js');
-var router = require(__dirname+'/lib/router.js');
-var errHandler = require(__dirname+'/lib/errHandler.js');
-var readConfig = require(__dirname+'/lib/readConfig.js');
-var initialize = require(__dirname+'/lib/initialize.js');
-var requestHandler = require(__dirname+'/lib/requestHandler.js');
+var server = require(__homePath+'/lib/server.js');
+var router = require(__homePath+'/lib/router.js');
+var errHandler = require(__homePath+'/lib/errHandler.js');
+var readConfig = require(__homePath+'/lib/readConfig.js');
+var initialize = require(__homePath+'/lib/initialize.js');
+var requestHandler = require(__homePath+'/lib/requestHandler.js');
 
 // define router handles
 var handle = {};
@@ -17,12 +15,13 @@ handle['/publish'] = requestHandler.publish;
 handle['/subscribe'] = requestHandler.subscribe;
 
 // load config >> initialization >> server start
-readConfig(__dirname+'/config/hiconcpt.yml', function(error, config) {
+readConfig(__homePath+'/config/hiconcpt.yml', function(error, config) {
     if(error) {
         errHandler(error);
     } else {
-        errHandler('V00'); // configuration check... OK
+        errHandler('I100'); // configuration check [OK]
         global.config = config;
+        // start initialization
         initialize(function(error, admin) {
             if(error) {
                 errHandler(error);
@@ -32,17 +31,14 @@ readConfig(__dirname+'/config/hiconcpt.yml', function(error, config) {
                 config.mongoUser = admin.mongoUser;
                 config.mongoPass = admin.mongoPass;
 
-console.log(config); //TODO
+errHandler('T0::'+JSON.stringify(config)); //TODO remove
 
-                errHandler('V01');
+                errHandler('I14'); // completed successfully
                 //start server;
             }
         }); 
     }
 });
-
-// initialize & check out
-
 
 /* initialize(start);
 
