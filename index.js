@@ -14,6 +14,23 @@ handle['/management'] = requestHandler.management;
 handle['/publish'] = requestHandler.publish;
 handle['/subscribe'] = requestHandler.subscribe;
 
+process.on('uncaughtException', function(error) {
+    errHandler('FX::'+error);
+    if (typeof error === 'object' && error.code == 'EACCES') {
+        errHandler('H02::'+config.port);
+        errHandler('H03');
+    }
+    if (typeof error === 'object' && error.code == 'ENOENT') {
+        var fs = require('fs');
+        if (!fs.existsSync(__homePath+'/log/')) {
+            errHandler('EE51');
+            fs.mkdirSync(__homePath+'/log',0775);
+            errHandler('IE52');
+            errHandler('H04');
+        }
+    }
+});
+
 // load config >> initialization >> server start
 readConfig(__homePath+'/config/hiconcpt.yml', function(error, config) {
     if(error) {
@@ -26,24 +43,16 @@ readConfig(__homePath+'/config/hiconcpt.yml', function(error, config) {
             if(error) {
                 errHandler(error);
             } else {
-                config.adminUser = admin.adminUser;
-                config.adminPass = admin.adminPass;
-                config.mongoUser = admin.mongoUser;
-                config.mongoPass = admin.mongoPass;
-
-errHandler('T0::'+JSON.stringify(config)); //TODO remove
-
                 errHandler('I14'); // completed successfully
-                //start server;
+errHandler('T0::'+JSON.stringify(config)); //TODO remove
+                //start web server
+                setTimeout(function() {
+                    server.start(router.route, handle, function(error) {
+                        errHandler(error);
+                    });
+                },1000);
             }
         }); 
     }
 });
 
-/* initialize(start);
-
-// start server
-function start(error) {
-    server.start(router.route, handle, config);
-    requestHandler.initDB(config);
-}*/

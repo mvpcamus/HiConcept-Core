@@ -1,7 +1,10 @@
 {
-  "0" : "[MESSAGE]",
+  "0" : null,
     "00" : "Please reconfig",
     "01" : "This program may NOT run correctly.",
+    "02" : "You don't have privilege to use port",
+    "03" : "Try to run as root or change port to upper 1024",
+    "04" : "Please restart program",
 
   "1" : "initialization",
     "10" : "configuration check",
@@ -20,7 +23,15 @@
       "132" : "[FAIL]",
     "14" : "completed successfully",
 
-  "E" : "[CONTEXT]",
+  "2" : "HiConcept",
+    "20" : "http server",
+      "200" : "has started on port",
+      "201" : "cannot open port",
+    "21" : "https server",
+      "210" : "has started on port",
+      "211" : "cannot open port",
+
+  "E" : "Context",
     "E0" : "cannot load",
       "E01" : "configuration",
         "E010" : "wrong format",
@@ -31,6 +42,7 @@
       "E12" : "invalid https setting",
       "E13" : "invalid database url",
       "E14" : "invalid database name",
+      "E15" : "cannot find ssl",
     "E2" : "false admin profile",
       "E21" : "invalid adminUser",
       "E22" : "invalid adminPass",
@@ -40,6 +52,10 @@
       "E31" : "unreached url",
       "E32" : "no permission",
     "E4" : "major Node.js version difference",
+    "E5" : "log directory",
+      "E51" : "missing",
+      "E52" : "created",
 
-  "X" : "Undefined ERROR CODE : "
+  "U" : "Undefined ERROR CODE : ",
+  "X" : "Uncaught Exception"
 }

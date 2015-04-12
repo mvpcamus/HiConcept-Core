@@ -27,11 +27,12 @@
         "LICENSE",
         "index.js",
         "config/",
-        "lib/"
+        "lib/",
+        "ssl/"
     ],
     "engines" : {
         "node" : ">= 0.12.2"
     },
     "directories" : {},
-    "readme" : "Readme.md"
+    "readme" : "README.md"
 }
