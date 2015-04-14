@@ -31,6 +31,11 @@
       "210" : "has started on port",
       "211" : "cannot open port",
 
+  "C" : "connection",
+    "C0" : "user",
+     "C00" : "authorized",
+     "C01" : "fail to authorize",
+
   "E" : null,
     "E0" : "cannot load",
       "E00" : "configuration",
