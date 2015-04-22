@@ -2,19 +2,10 @@
 
 global._homePath = __dirname;
 // modules
-var server = require(_homePath+'/lib/server.js');
-var router = require(_homePath+'/lib/router.js');
 var errHandler = require(_homePath+'/lib/errHandler.js');
 var readConfig = require(_homePath+'/lib/readConfig.js');
 var initialize = require(_homePath+'/lib/initialize.js');
-var requestHandler = require(_homePath+'/lib/requestHandler.js');
-
-// define router handles
-var handle = {};
-handle['/'] = requestHandler.root;
-handle['/management'] = requestHandler.management;
-handle['/publish'] = requestHandler.publish;
-handle['/subscribe'] = requestHandler.subscribe;
+var server = require(_homePath+'/lib/server.js');
 
 process.on('uncaughtException', function(error) {
     if (typeof error === 'object') {
@@ -60,7 +51,7 @@ readConfig(function(error, config) {
 //errHandler('T0::'+JSON.stringify(_config)+'\n'+JSON.stringify(process.env)); //TODO remove
                 //start web server
                 setTimeout(function() {
-                    server.start(router.route, handle, function(error) {
+                    server.start(function(error) {
                         if(error) {
                             errHandler(error);
                         } else {

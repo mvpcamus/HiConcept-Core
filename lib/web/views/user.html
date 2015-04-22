@@ -3,12 +3,12 @@
 <head>
   <title>User Login and Sessions</title>
   <link rel="stylesheet" type="text/css" 
-      href="/static/styles.css" />
+      href="/admin/static/styles.css" />
 </head>
 <body>
   <div class="form-container" ng-controller="myController">
     <p class="form-header">User Profile</p>
-    <form method="POST" action="/user/update">
+    <form method="POST" action="/admin/user/update">
        <label>User ID:</label>
          <input type="text" name="id" 
                 ng-model="user._id" disabled><br>
@@ -30,11 +30,11 @@
        <input type="submit" value="Save">
     </form>       
   </div>
-  <form method="POST" action="/user/delete">
+  <form method="POST" action="/admin/user/delete">
     <input type="submit" value="Delete User">
   </form>
   <hr><%= msg %>
-  <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
-  <script src="/static/my_app.js"></script>
+  <script src="/admin/static/angular/angular.min.js"></script>
+  <script src="/admin/static/my_app.js"></script>
 </body>
 </html>
