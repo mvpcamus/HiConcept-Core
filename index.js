@@ -48,7 +48,7 @@ readConfig(function(error, config) {
                 errHandler(error);
             } else {
                 errHandler('I14'); // completed successfully
-//errHandler('T0::'+JSON.stringify(_config)+'\n'+JSON.stringify(process.env)); //TODO remove
+errHandler('T0::'+JSON.stringify(_config)); //TODO remove
                 //start web server
                 setTimeout(function() {
                     server.start(function(error) {

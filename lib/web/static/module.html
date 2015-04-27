@@ -1,0 +1,14 @@
+<div>
+  <table>
+    <tr><th>No.</th><th>Name</th><th>UUID</th><th>Type</th></tr>
+    <tr ng-repeat="mod in module">
+      <td align=center>{{mod.count}}</td>
+      <td align=center>{{mod.name}}</td>
+      <td align=center>{{mod.uuid}}</td>
+      <td align=center>{{mod.type}}</td>
+      <td align=center><span ng-click="editModule(mod._id)">edit</span></td>
+      <td align=center><span ng-click="deleteModule(mod._id)">delete</span></td>
+    </tr>
+  </table>
+  </p>{{error}}</p>
+</div>
