@@ -11,9 +11,13 @@ p.form-header{
   color:white;  background:gray;
   text-align:center;
 }
+a.no-uline{
+  color:black;
+  text-decoration:none;
+}
 span{
   padding:2px;
-  margin:5px;
+  margin:2px;
   border:1px solid gray;
   border-radius:5px;
   cursor:pointer;

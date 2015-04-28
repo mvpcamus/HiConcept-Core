@@ -8,15 +8,14 @@
 <body>
   <div ng-controller="myController">
     <h2>Welcome <%= name %>. login ID: <%= id %></h2>
-    <a href="/admin/logout">logout</a>
-    <a href="/admin/user">Edit User</a>
+    <a href="/admin/logout" class="no-uline"><span>logout</span></a>
+    <a href="/admin/user" class="no-uline"><span>Edit User</span></a>
     <p>HiConcept User Page<p>
   </div>
   <hr>
-  <p><a href="/admin/module">Add Module</a></p>
+  <p><a href="/admin/module" class="no-uline"><span>Add Module</span></a></p>
   <div ng-controller="moduleController" ng-include="'/admin/static/module.html'">
   </div>
-  <hr><%= msg %>
   <script src="/admin/static/angular/angular.min.js"></script>
   <script src="/admin/static/js/web_ui.js"></script>
 </body>
