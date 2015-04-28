@@ -11,10 +11,9 @@
     <a href="/admin/logout" class="no-uline"><span>logout</span></a>
     <a href="/admin/user" class="no-uline"><span>Edit User</span></a>
     <p>HiConcept User Page<p>
-  </div>
   <hr>
-  <p><a href="/admin/module" class="no-uline"><span>Add Module</span></a></p>
-  <div ng-controller="moduleController" ng-include="'/admin/static/module.html'">
+    <a href="/admin/modules" class="no-uline"><span>Add Module</span></a>
+    <p ng-include="'/admin/static/module.html'"></p>
   </div>
   <script src="/admin/static/angular/angular.min.js"></script>
   <script src="/admin/static/js/web_ui.js"></script>
