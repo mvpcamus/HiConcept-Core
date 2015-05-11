@@ -7,11 +7,8 @@
     </div>
   </div><!--/errorMessage-->
   <div>
-    <p>Welcome, {{currentUser.id}}! <span ng-if="currentUser.role=='admin'">[{{currentUser.role}}]</span></p>
-    <p></p>
-    <p>Module List</p>
     <div class="table-responsive col-lg-10 col-lg-offset-1">
-    <table class="table" ng-init="getModules(currentUser.id)">
+    <table ng-init="getModules(currentUser.id)" class="table">
       <tr class="active">
         <th>
           <div class="row">
@@ -31,9 +28,9 @@
             <div class="col-lg-4">{{item.uuid}}</div>
             <div class="col-lg-2">{{item.type}}</div>
             <div class="col-lg-2">
-              <button ng-if="editMode==0" type="button" class="btn btn-default btn-sm" aria-label="Modify" ng-click="setEditMode(item.count)">
+              <button ng-if="editMode==0" ng-click="setEditMode(item.count)" type="button" class="btn btn-default btn-sm" aria-label="Modify">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
-              <button ng-if="editMode!=0" type="button" class="btn btn-default btn-sm" aria-label="Modify" disabled="disabled">
+              <button ng-if="editMode!=0" disabled="disabled" type="button" class="btn btn-default btn-sm" aria-label="Modify">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
             </div>
           </div>
@@ -43,17 +40,19 @@
             <form ng-submit="updateModule(item._id, item)">
               <div class="col-lg-1">{{item.count}}</div>
               <div class="col-lg-3">
-                <input type="text" ng-model="item.name" value="{{item.name}}" class="form-control input-sm"></div>
+                <input ng-model="item.name" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.name}}"></div>
               <div class="col-lg-4">
-                <input type="text" ng-model="item.uuid" value="{{item.uuid}}" class="form-control input-sm"></div>
+                <input ng-model="item.uuid" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.uuid}}"></div>
               <div class="col-lg-2">
-                <input type="text" ng-model="item.type" value="{{item.type}}" class="form-control input-sm"></div>
+                <input ng-model="item.type" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.type}}"></div>
               <div class="col-lg-2">
-                <button type="button" class="btn btn-default btn-sm" aria-label="Cancel" ng-click="setEditMode(0)">
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                <button type="submit" class="btn btn-success btn-sm" aria-label="Save">
+                <button ng-click="setEditMode(false)" type="button" class="btn btn-default btn-sm" aria-label="Cancel">
+                  <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></button>
+                <button ng-if="modified" type="submit" class="btn btn-success btn-sm" aria-label="Save">
                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-                <button type="button" class="btn btn-danger btn-sm" aria-label="Delete" ng-click="removeModule(item._id)">
+                <button ng-if="!modified" disabled="disabled" class="btn btn-success btn-sm" aria-label="Save">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                <button ng-click="removeModule(item._id)" type="button" class="btn btn-danger btn-sm" aria-label="Delete">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
               </div>
             </form>
@@ -66,14 +65,14 @@
             <form ng-submit="createModule(newItem)">
               <div class="col-lg-1">New</div>
               <div class="col-lg-3">
-                <input type="text" ng-model="newItem.name" class="form-control input-sm" placeholder="Module name"></div>
+                <input ng-model="newItem.name" ng-change="newtried=true" type="text" class="form-control input-sm" placeholder="Module name"></div>
               <div class="col-lg-4">
-                <input type="text" ng-model="newItem.uuid" class="form-control input-sm" placeholder="UUID or Serial Number"></div>
+                <input ng-model="newItem.uuid" ng-change="newtried=true" type="text" class="form-control input-sm" placeholder="UUID or Serial Number"></div>
               <div class="col-lg-2">
-                <input type="text" ng-model="newItem.type" class="form-control input-sm" placeholder="Type"></div>
+                <input ng-model="newItem.type" ng-change="newtried=true" type="text" class="form-control input-sm" placeholder="Type"></div>
               <div class="col-lg-2">
-                <button ng-if="editMode==0" type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                <button ng-if="editMode!=0" type="submit" class="btn btn-primary btn-sm" disabled="disabled"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <button ng-if="newtried && !editMode" type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <button ng-if="!newtried || editMode" disabled="disabled" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
               </div>
             </form>
           </div>

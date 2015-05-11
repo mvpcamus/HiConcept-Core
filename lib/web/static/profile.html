@@ -7,28 +7,31 @@
     </div>
   </div><!--/ng-if="errorMessage"-->
 
-  <div class="col-lg-8 col-lg-offset-2">
-    <p class="text-muted"><span class="glyphicon glyphicon-paperclip"></span>
-      &nbsp;The input signed with * means mandatory.</p>
-  </div>
+    <div class="col-lg-6 col-lg-offset-2">
+      <p class="text-muted"><span class="glyphicon glyphicon-paperclip"></span>
+        &nbsp;Please input new password only if you want to change it.</p>
+    </div>
+    <div class="col-lg-2">
+      <button ng-click="deleteUser()" class="btn btn-lg btn-danger btn-block">Delete Account</button>
+    </div>
 
   <div class="col-lg-12">
-  <form ng-submit="signup(profiles)" class="form-horizontal">
+  <form ng-submit="updateUser(profiles)" class="form-horizontal">
   <div class="form-group">
     <label for="inputAccount" class="col-lg-2 control-label">Account</label>
     <div class="col-lg-8">
-      <input ng-model="profiles.id" type="text" id="inputAccount" class="form-control" placeholder="Your account ID*" required>
+      <input ng-model="profiles.id" type="text" id="inputAccount" class="form-control" placeholder="Your account ID*" disabled>
     </div>
   </div>
   <div class="form-group">
     <label for="inputPassword" class="col-lg-2 control-label">Password</label>
     <div class="col-lg-8">
-      <input ng-model="profiles.pass" type="password" id="inputPassword" class="form-control" placeholder="Password*" required>
+      <input ng-model="profiles.pass" type="password" id="inputPassword" class="form-control" placeholder="New password">
     </div>
   </div>
   <div class="form-group">
     <div class="col-lg-8 col-lg-offset-2">
-      <input ng-model="profiles.pass2" type="password" class="form-control" placeholder="Reconfirm password*" required>
+      <input ng-model="profiles.pass2" type="password" class="form-control" placeholder="Reconfirm password">
     </div>
   </div>
   <div class="form-group">
@@ -73,5 +76,4 @@
     </div>
   </div>
   </form>
-  </div>
 </div>

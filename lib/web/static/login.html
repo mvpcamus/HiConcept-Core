@@ -1,25 +1,25 @@
 <div class="container">
-<div ng-if="errorMessage">
-  <div class="alert alert-danger col-lg-8 col-lg-offset-2" role="alert">
-    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-    <span class="sr-only">Error:</span>
-    {{errorMessage}}
-  </div>
-</div>
-<div ng-if="!currentUser">
-  <form class="form-signin" ng-submit="login(credentials)">
-    <h3 class="form-signin-heading">HiConcept Server</h3>
-    <label for="inputAccount" class="sr-only">User account</label>
-    <input type="text" id="inputAccount" class="form-control" ng-model="credentials.id" placeholder="User account" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" ng-model="credentials.pass" placeholder="Password" required>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+  <div ng-if="errorMessage">
+    <div class="alert alert-danger col-lg-8 col-lg-offset-2" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{errorMessage}}
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <a class="btn btn-lg btn-default btn-block" href="web/signup">Sign up</a>
-  </form>
-</div>
+  </div>
+  <div ng-if="!currentUser">
+    <form ng-submit="login(credentials)" class="form-signin">
+      <h3 class="form-signin-heading">HiConcept Server</h3>
+      <label for="inputAccount" class="sr-only">User account</label>
+      <input ng-model="credentials.id" type="text" id="inputAccount" class="form-control" placeholder="User account" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input ng-model="credentials.pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+      <a href="web/signup" class="btn btn-lg btn-default btn-block">Sign up</a>
+    </form>
+  </div>
 </div>
