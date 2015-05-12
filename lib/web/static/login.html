@@ -1,9 +1,9 @@
 <div class="container">
-  <div ng-if="errorMessage">
-    <div class="alert alert-danger col-lg-8 col-lg-offset-2" role="alert">
+  <div ng-if="msg.text">
+    <div ng-click="msg.text=null" class="alert alert-{{msg.type}} col-lg-8 col-lg-offset-2" role="alert">
       <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-      <span class="sr-only">Error:</span>
-      {{errorMessage}}
+      <span class="sr-only">Message:</span>
+      {{msg.text}}
     </div>
   </div>
   <div ng-if="!currentUser">
