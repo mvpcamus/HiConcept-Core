@@ -36,7 +36,7 @@ process.on('SIGINT', function() {
 });
 
 // load config >> initialization >> server start
-readConfig(function(error, config) {
+readConfig(function(error, config, sslCerts) {
     if(error) {
         errHandler(error);
     } else {
@@ -51,11 +51,11 @@ readConfig(function(error, config) {
 errHandler('T0::'+JSON.stringify(_config)); //TODO remove
                 //start web server
                 setTimeout(function() {
-                    server.start(function(error) {
+                    server.start(sslCerts, function(error) {
                         if(error) {
                             errHandler(error);
-                        } else {
-                            errHandler('I200::['+_config.port+']'); // server started
+                        } else { // server started
+                            errHandler((sslCerts?'I210':'I200')+'::['+_config.port+']');
                             errHandler('H04');
                         }
                     });

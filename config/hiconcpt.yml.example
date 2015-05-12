@@ -1,13 +1,15 @@
-## set http port number
+## Hiconcept server settings
+
+## set server web port
 port: 9994
 
-## set true if use https connection
-https: false
-  ## https certification files
-  #crt-path: './ssl/server.crt'
-  #key-path: './ssl/server.key'
+## set to true if use HTTPs connection
+https: true
+## ssl certification files in /config/ssl/
+sslCrt: server.crt
+sslKey: server.key
 
-## set mongodb
-dbUrl: localhost
-dbName: hicontest 
+## MongoDB information
+dbUrl: localhost # MongoDB URL
+dbName: hiconcept # Database name
 
