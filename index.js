@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+"use strict";
 
 global._homePath = __dirname;
 // modules
@@ -21,13 +22,15 @@ process.on('uncaughtException', function(error) {
 });
 
 process.on('exit', function(code) {
-    if (code) {
-        errHandler('F0::Terminate Process: '+process.title+'('+code+')'
-             +', PID: '+process.pid+', Uptime: '+process.uptime()+'s');
-    } else {
-        errHandler('I0::Terminate Process: '+process.title+'('+code+')'
-             +', PID: '+process.pid+', Uptime: '+process.uptime()+'s');
-    }
+    server.close(function() {
+        if (code) {
+            errHandler('F0::Terminate Process: '+process.title+'('+code+')'
+                 +', PID: '+process.pid+', Uptime: '+process.uptime()+'s');
+        } else {
+            errHandler('I0::Terminate Process: '+process.title+'('+code+')'
+                 +', PID: '+process.pid+', Uptime: '+process.uptime()+'s');
+        }
+    });
 });
 
 process.on('SIGINT', function() {
@@ -36,26 +39,26 @@ process.on('SIGINT', function() {
 });
 
 // load config >> initialization >> server start
-readConfig(function(error, config, sslCerts) {
+readConfig(function(error, config) {
     if(error) {
         errHandler(error);
     } else {
         errHandler('I100'); // configuration check [OK]
-        global._config = config;
+        var dbConf = {dbUrl: config.dbUrl, dbName: config.dbName};
+        var httpConf = {port: config.port, https: config.https, sslCerts: config.sslCerts};
         // start initialization
-        initialize(function(error, admin) {
+        initialize(dbConf, function(error, dbPath) {
             if(error) {
                 errHandler(error);
             } else {
                 errHandler('I14'); // completed successfully
-errHandler('T0::'+JSON.stringify(_config)); //TODO remove
                 //start web server
                 setTimeout(function() {
-                    server.start(sslCerts, function(error) {
+                    server.start(httpConf, dbPath, function(error) {
                         if(error) {
                             errHandler(error);
                         } else { // server started
-                            errHandler((sslCerts?'I210':'I200')+'::['+_config.port+']');
+                            errHandler((config.https?'I210':'I200')+'::['+config.port+']');
                             errHandler('H04');
                         }
                     });

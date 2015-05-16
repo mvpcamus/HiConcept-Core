@@ -3,8 +3,8 @@
 ## for secury, initial.yml file will be deleted automatically after initialization.
 
 ## Setting HiConcept system administrator ID
-adminUser: username
-adminPass: password
+adminUser: admin
+adminPass: p@s$w0rd
 
 ## setting MongoDB user ID (if not, set it as 'null')
 mongoUser: null
