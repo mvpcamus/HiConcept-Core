@@ -12,4 +12,3 @@ sslKey: server.key
 ## MongoDB information
 dbUrl: localhost # MongoDB URL
 dbName: hiconcept # Database name
-
