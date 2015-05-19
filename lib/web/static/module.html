@@ -1,0 +1,84 @@
+<div class="container">
+  <div ng-if="msg.text">
+    <div ng-click="msg.text=null" class="alert alert-{{msg.type}} col-lg-10 col-lg-offset-1" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Message:</span>
+      {{msg.text}}
+    </div>
+  </div><!--/errorMessage-->
+  <div>
+    <div class="table-responsive col-lg-10 col-lg-offset-1">
+    <table ng-init="getModules(currentUser.id)" class="table">
+      <tr class="active">
+        <th>
+          <div class="row">
+            <div class="col-lg-1">No.</div>
+            <div class="col-lg-3">Name</div>
+            <div class="col-lg-4">UUID</div>
+            <div class="col-lg-2">Type</div>
+            <div class="col-lg-2"></div>
+          </div>
+        </th>
+      </tr>
+      <tr ng-repeat="item in modules">
+        <td ng-if="editMode!=item.count">
+          <div class="row">
+            <div class="col-lg-1">{{item.count}}</div>
+            <div class="col-lg-3">{{item.name}}</div>
+            <div class="col-lg-4">{{item.uuid}}</div>
+            <div class="col-lg-2">{{item.type}}</div>
+            <div class="col-lg-2">
+              <button ng-if="editMode==0" ng-click="setEditMode(item.count)" type="button" class="btn btn-default btn-sm" aria-label="Modify">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+              <button ng-if="editMode!=0" disabled="disabled" type="button" class="btn btn-default btn-sm" aria-label="Modify">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+            </div>
+          </div>
+        </td>
+        <td ng-if="editMode==item.count">
+          <div class="row">
+            <form ng-submit="updateModule(item._id, item)">
+              <div class="col-lg-1">{{item.count}}</div>
+              <div class="col-lg-3">
+                <input ng-model="item.name" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.name}}"></div>
+              <div class="col-lg-4">
+                <input ng-model="item.uuid" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.uuid}}"></div>
+              <div class="col-lg-2">
+                <input ng-model="item.type" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.type}}"></div>
+              <div class="col-lg-2">
+                <button ng-click="setEditMode(false)" type="button" class="btn btn-default btn-sm" aria-label="Cancel">
+                  <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></button>
+                <button ng-if="modified" type="submit" class="btn btn-success btn-sm" aria-label="Save">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                <button ng-if="!modified" disabled="disabled" class="btn btn-success btn-sm" aria-label="Save">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                <button ng-click="removeModule(item._id)" type="button" class="btn btn-danger btn-sm" aria-label="Delete">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+              </div>
+            </form>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="row">
+            <form ng-submit="createModule(newItem)">
+              <div class="col-lg-1">New</div>
+              <div class="col-lg-3">
+                <input ng-model="newItem.name" ng-change="newtried=true" type="text" class="form-control input-sm" placeholder="Module name"></div>
+              <div class="col-lg-4">
+                <input ng-model="newItem.uuid" ng-change="newtried=true" type="text" class="form-control input-sm" placeholder="UUID or Serial Number"></div>
+              <div class="col-lg-2">
+                <input ng-model="newItem.type" ng-change="newtried=true" type="text" class="form-control input-sm" placeholder="Type"></div>
+              <div class="col-lg-2">
+                <button ng-if="newtried && !editMode" type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <button ng-if="!newtried || editMode" disabled="disabled" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+              </div>
+            </form>
+          </div>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </div>
+</div>
