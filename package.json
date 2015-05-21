@@ -35,7 +35,7 @@
         "ssl/"
     ],
     "engines" : {
-        "node" : ">= 0.12.2"
+        "node" : ">= 0.12.3"
     },
     "directories" : {},
     "readme" : "README.md"
