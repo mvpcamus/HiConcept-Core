@@ -13,7 +13,10 @@
         <th>
           <div class="row">
             <div class="col-lg-1">No.</div>
-            <div class="col-lg-9">Name</div>
+            <div class="col-lg-2">Name</div>
+            <div class="col-lg-3">Access Id</div>
+            <div class="col-lg-2">Readable</div>
+            <div class="col-lg-2">Writable</div>
             <div class="col-lg-2"></div>
           </div>
         </th>
@@ -22,7 +25,14 @@
         <td ng-if="editMode!=item.count">
           <div class="row">
             <div class="col-lg-1">{{item.count}}</div>
-            <div class="col-lg-9">{{item.name}}</div>
+            <div class="col-lg-2">{{item.name}}</div>
+            <div class="col-lg-3">{{item.col}}</div>
+            <div class="col-lg-2">
+              <p ng-repeat="reader in item.read">{{reader}}</p>
+            </div>
+            <div class="col-lg-2">
+              <p ng-repeat="writer in item.write">{{writer}}</p>
+            </div>
             <div class="col-lg-2">
               <button ng-if="editMode==0" ng-click="setEditMode(item.count)" type="button" class="btn btn-default btn-sm" aria-label="Modify">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
@@ -35,8 +45,17 @@
           <div class="row">
             <form ng-submit="updateTopic(item._id, item)">
               <div class="col-lg-1">{{item.count}}</div>
-              <div class="col-lg-9">
+              <div class="col-lg-2">
                 <input ng-model="item.name" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.name}}"></div>
+              <div class="col-lg-3">{{item.col}}</div>
+              <div class="col-lg-2">
+                <p ng-repeat="reader in item.read">{{reader}}</p>
+                <input ng-model="item.readAdd" ng-change="modified=true" type="text" class="form-control input-sm">
+              </div>
+              <div class="col-lg-2">
+                <p ng-repeat="writer in item.write">{{writer}}</p>
+                <input ng-model="item.writeAdd" ng-change="modified=true" type="text" class="form-control input-sm">
+              </div>
               <div class="col-lg-2">
                 <button ng-click="setEditMode(false)" type="button" class="btn btn-default btn-sm" aria-label="Cancel">
                   <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></button>
