@@ -49,12 +49,18 @@
                 <input ng-model="item.name" ng-change="modified=true" type="text" class="form-control input-sm" value="{{item.name}}"></div>
               <div class="col-lg-3">{{item.col}}</div>
               <div class="col-lg-2">
-                <p ng-repeat="reader in item.read">{{reader}}</p>
-                <input ng-model="item.readAdd" ng-change="modified=true" type="text" class="form-control input-sm">
+                <p ng-repeat="reader in item.read">{{reader}} &nbsp;
+                  <button ng-click="item.readDel=reader" class="btn btn-danger btn-xs" aria-label="Delete">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                  </button></p>
+                <input ng-model="item.readAdd" ng-change="modified=true" type="text" class="form-control input-sm" placeholder="module ID">
               </div>
               <div class="col-lg-2">
-                <p ng-repeat="writer in item.write">{{writer}}</p>
-                <input ng-model="item.writeAdd" ng-change="modified=true" type="text" class="form-control input-sm">
+                <p ng-repeat="writer in item.write">{{writer}} &nbsp;
+                  <button ng-click="item.writeDel=writer" class="btn btn-danger btn-xs" aria-label="Delete">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                  </button></p>
+                <input ng-model="item.writeAdd" ng-change="modified=true" type="text" class="form-control input-sm" placeholder="module ID">
               </div>
               <div class="col-lg-2">
                 <button ng-click="setEditMode(false)" type="button" class="btn btn-default btn-sm" aria-label="Cancel">
