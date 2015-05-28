@@ -1,7 +1,7 @@
 {
-    "name" : "HiConcept-Framework-Server",
-    "version" : "0.0.3",
-    "description" : "HiConcept Framework Server",
+    "name" : "HiConcept-CMF-Core",
+    "version" : "0.0.4",
+    "description" : "HiConcept Context Management Framework Core",
     "author" : {
         "name" : "Jun Jo",
         "email" : "camus@kaist.ac.kr"
@@ -13,16 +13,16 @@
         }
     ],
     "dependencies" : {
-        "async" : "0.9.0",
+        "async" : "1.0.0",
         "basic-auth" : "1.0.1",
         "body-parser" : "1.12.4",
         "connect-mongo" : "0.8.1",
         "ejs" : "2.3.1",
-        "express" : "4.12.3",
+        "express" : "4.12.4",
         "express-session" : "1.11.2",
-        "js-yaml" : "3.3.0",
-        "mongodb" : "2.0.27",
-        "mongoose" : "4.0.2",
+        "js-yaml" : "3.3.1",
+        "mongodb" : "2.0.30",
+        "mongoose" : "4.0.3",
         "winston" : "1.0.0"
     },
     "main" : "index",
@@ -35,7 +35,7 @@
         "ssl/"
     ],
     "engines" : {
-        "node" : ">= 0.12.3"
+        "node" : ">= 0.12.4"
     },
     "directories" : {},
     "readme" : "README.md"

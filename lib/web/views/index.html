@@ -32,18 +32,7 @@
             <li><a href="web/module">Modules</a></li>
             <li><a href="web/topic">Topics</a></li>
             <li><a href="web/profile">Profile</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="web/" ng-click="logout()">Log out</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><a href="web/" ng-click="logout()">Log out</a></li> 
           </ul>
         </div><!--/.nav-collapse -->
         </div>
@@ -52,15 +41,6 @@
 
     <!-- Begin page content -->
     <div class="container">
-      <div ng-if="currentUser">Welcome, {{currentUser.id}}</div>
-      <div ng-if="isAuthorized(userRoles.admin)">You're admin.</div>
-      <div>userRoles: {{userRoles}}</div>
-      <div>authorizedRoles: {{authorizedRoles}}</div>
-      <div>currentUser: {{currentUser}}</div>
-      <div>location: {{main.$location.path()}}</div>
-      <div>route: {{main.$route.current.templateUrl}}</div>
-      <hr>
-
       <div ng-view></div>
     </div>
 
