@@ -13,7 +13,7 @@
         }
     ],
     "dependencies" : {
-        "async" : "1.0.0",
+        "async" : "1.2.0",
         "basic-auth" : "1.0.1",
         "body-parser" : "1.12.4",
         "connect-mongo" : "0.8.1",
@@ -21,8 +21,8 @@
         "express" : "4.12.4",
         "express-session" : "1.11.2",
         "js-yaml" : "3.3.1",
-        "mongodb" : "2.0.30",
-        "mongoose" : "4.0.3",
+        "mongodb" : "2.0.33",
+        "mongoose" : "4.0.4",
         "winston" : "1.0.0"
     },
     "main" : "index",
