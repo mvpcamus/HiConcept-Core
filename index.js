@@ -12,7 +12,7 @@ process.on('uncaughtException', function(error) {
     if (typeof error === 'object') {
         errHandler('FX::'+error.stack);
         if (error.code == 'EACCES') {
-            errHandler('H02::['+_config.port+']');
+            errHandler('H02');
             errHandler('H03');
         }
     } else {

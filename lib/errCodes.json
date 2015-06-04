@@ -2,7 +2,7 @@
   "0" : null,
     "00" : "Please reconfig",
     "01" : "This program may NOT run correctly.",
-    "02" : "You don't have privilege to use port",
+    "02" : "You don't have privilege to use configured port",
     "03" : "Try to run as root or change port to upper 1024",
     "04" : "Press 'ctrl+c' to terminate HiConcept server",
 
