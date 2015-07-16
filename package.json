@@ -33,7 +33,7 @@
         "lib/"
     ],
     "engines" : {
-        "node" : ">= 0.12.5"
+        "node" : ">= 0.12.7"
     },
     "directories" : {},
     "readme" : "README.md"
