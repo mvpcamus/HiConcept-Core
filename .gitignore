@@ -4,3 +4,4 @@
 /config/*.json
 /config/ssl/*.crt
 /config/ssl/*.key
+*.sh
