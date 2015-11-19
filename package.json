@@ -1,6 +1,6 @@
 {
     "name" : "HiConcept-CMF-Core",
-    "version" : "0.0.6",
+    "version" : "0.1.0",
     "description" : "HiConcept Context Management Framework Core",
     "author" : {
         "name" : "Jun Jo",
