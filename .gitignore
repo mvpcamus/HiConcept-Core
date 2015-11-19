@@ -1,7 +1,9 @@
+/addons/*
+!/addons/*.yml.example
+!/addons/PLACE_ADDONS_HERE
 /log/
 /node_modules/
-/config/*.yml
-/config/*.json
-/config/ssl/*.crt
-/config/ssl/*.key
+/config/*
+!/config/*.yml.example
+!/config/ssl/PLACE_SSL_CERTS_HERE
 *.sh

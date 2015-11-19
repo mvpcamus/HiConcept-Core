@@ -30,6 +30,7 @@
     "21" : "https server",
       "210" : "has started on port",
       "211" : "cannot open port",
+    "22" : "addon loaded",
 
   "C" : "connection",
     "C0" : "user",
@@ -42,6 +43,7 @@
         "E000" : "wrong format",
       "E01" : "admin profile setup",
       "E02" : "stored admin profile",
+      "E03" : "addon module",
     "E1" : "false configuration",
       "E10" : "invalid port number",
       "E11" : "invalid https setting",
