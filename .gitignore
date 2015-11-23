@@ -6,4 +6,3 @@
 /config/*
 !/config/*.yml.example
 !/config/ssl/PLACE_SSL_CERTS_HERE
-*.sh
