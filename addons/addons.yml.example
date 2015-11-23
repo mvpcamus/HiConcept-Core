@@ -1,6 +1,6 @@
-## enable addon use
+## enable add-on use
 enable: true
 
-## set addon path lists
-## write down each addon (directory) name into the list
+## set add-on path lists
+## write down each add-on (directory) name into the list
 list: ['HiConcept-Addon1','HiConcept-Addon2']

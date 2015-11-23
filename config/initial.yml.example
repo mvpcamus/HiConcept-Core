@@ -1,8 +1,8 @@
 ## initial.yml File Example
 ## create 'initial.yml' file using this file.
-## for secury, initial.yml file will be deleted automatically after initialization.
+## for security, initial.yml file will be deleted automatically after initialization.
 
-## Setting HiConcept system administrator ID
+## setting HiConcept system administrator ID
 adminUser: admin
 adminPass: p@s$w0rd
 
